@@ -14,7 +14,7 @@
     <nav>
       <ul class="nav__links">
         <li class="link"><a href="#">Início</a></li>
-        <li class="link"><a href="#">Anunciar</a></li>
+        <li class="link"><a href="{{ route('register') }}">Registrar-se</a></li>
       </ul>
       <div class="nav__logo">
         <a href="#">[LOGO AQUI]<span>.</span></a>
