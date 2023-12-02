@@ -1,1 +1,1 @@
-<img src="{{ asset('img/logo.png') }}" width="400px" alt="Logo UAI Home">
+<img src="{{ asset('img/logo.png') }}" width="200px" alt="Logo UAI Home">

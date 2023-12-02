@@ -14,7 +14,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0" style="background: linear-gradient(to bottom, #ba3011, #4e0101);">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0" style="background: linear-gradient(to bottom, #d0c2bf, #c4acac);">
             <div>
                 <a href="/">
                     <x-application-logo-login class="w-20 h-20 fill-current text-gray-500" />
@@ -24,7 +24,12 @@
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
-        </div>
+
+            <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
+                <div class="text-sm text-gray-600 sm:text-right sm:ml-4">
+                </div>
+            </div>
+    </div>
 
     </body>
 </html>
