@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->string('anunciosFavoritos');
-            $table->date('dataCadastro');
-            $table->date('dataNascimento');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->boolean("is_admin");
+            $table->string('cpf')->unique();
+            $table->string('anunciosFavoritos')->nullable();
+            $table->date('dataCadastro')->nullable();
+            $table->date('dataNascimento')->nullable();
             $table->timestamps();
         });
     }
