@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Cliente;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -34,6 +35,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'cpf' => 'required|cpf|formato_cpf',
         ]);
 
         $user = User::create([
@@ -41,12 +43,24 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'is_admin' => 0,
-            'cpf'=> 0,
+            'cpf'=> $request->cpf,
+        ]);
+
+        $cliente = Cliente::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'is_admin' => 0,
+            'cpf'=> $request->cpf,
+            'anunciosFavoritos' => null,
+            'dataCadastro'=> null,
+            'dataNascimento'=> null
         ]);
 
         event(new Registered($user));
+        event(new Registered($cliente));
 
-        Auth::login($user);
+        Auth::login($cliente);
 
         return redirect(RouteServiceProvider::HOME);
     }

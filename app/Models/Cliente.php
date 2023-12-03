@@ -12,6 +12,11 @@ class Cliente extends User
     use HasFactory;
 
     protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'is_admin',
+        'cpf',
         'anunciosFavoritos',
         'dataCadastro',
         'dataNascimento'
