@@ -77,8 +77,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/{imovel}/edit', [ImovelController::class, 'edit'])->name('imoveis.edit');
             Route::get('/{imovel}', [ImovelController::class, 'show'])->name('imoveis.show');
             Route::post('', [ImovelController::class, 'store'])->name('imoveis.store');
-            Route::post('/{imovel}', [ImovelController::class, 'update'])->name('imoveis.update');
-            Route::post('/delete/{imovel}', [ImovelController::class, 'destroy'])->name('imoveis.destroy');
+            Route::put('/{imovel}', [ImovelController::class, 'update'])->name('imoveis.update');
+
+            Route::delete('/delete/{imovel}', [ImovelController::class, 'destroy'])->name('imoveis.destroy');
+
+
         });
         
         Route::prefix('reservas')->group(function () {
