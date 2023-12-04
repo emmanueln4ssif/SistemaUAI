@@ -45,8 +45,8 @@ Route::middleware('auth')->group(function () {
     //prefixo conta, tudo que estiver aqui deve ser antecedido de /conta
     Route::prefix('conta')->group(function () {
 
-        //prefixo clientes, tudo que estiver aqui deve ser antecedido de /conta/clientes
-        Route::prefix('clientes')->group(function () {
+        //prefixo clientes, tudo que estiver aqui deve ser antecedido de /conta/usuario
+        Route::prefix('usuario')->group(function () {
             Route::get('', [ClienteController::class, 'index'])->name('clientes.index');
             Route::get('/create', [ClienteController::class, 'create'])->name('clientes.create');
             Route::get('/{cliente}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
@@ -54,6 +54,11 @@ Route::middleware('auth')->group(function () {
             Route::post('', [ClienteController::class, 'store'])->name('clientes.store');
             Route::post('/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
             Route::post('/delete/{cliente}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+
+            Route::get('/meu_perfil', [PerfilController::class, 'create'])->name('perfil.create');
+            Route::post('/meu_perfil', [PerfilController::class, 'store'])->name('perfil.store');
+            Route::get('/meu_perfil/{cliente}', [PerfilController::class, 'show'])->name('perfil.show');
+            Route::get('/meu_perfil/{cliente}/edit', [PerfilController::class, 'edit'])->name('perfil.edit');
         });
 
         Route::prefix('anuncios')->group(function () {
@@ -72,8 +77,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/{imovel}/edit', [ImovelController::class, 'edit'])->name('imoveis.edit');
             Route::get('/{imovel}', [ImovelController::class, 'show'])->name('imoveis.show');
             Route::post('', [ImovelController::class, 'store'])->name('imoveis.store');
-            Route::post('/{imovel}', [ImovelController::class, 'update'])->name('imoveis.update');
-            Route::post('/delete/{imovel}', [ImovelController::class, 'destroy'])->name('imoveis.destroy');
+            Route::put('/{imovel}', [ImovelController::class, 'update'])->name('imoveis.update');
+
+            Route::delete('/delete/{imovel}', [ImovelController::class, 'destroy'])->name('imoveis.destroy');
+
+
         });
         
         Route::prefix('reservas')->group(function () {

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Imovel extends Model
 {
     use HasFactory;
-
+    protected $table = 'imoveis';
     protected $fillable = [
         'tipo',
         'endereco',
