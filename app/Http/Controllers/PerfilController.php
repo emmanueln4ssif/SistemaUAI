@@ -7,12 +7,22 @@ use Illuminate\Http\Request;
 
 class PerfilController extends Controller
 {
+    public function index(Request $request)
+    {
+        return view('/admin.perfis.index');
+    }
+
+    public function show(Perfil $perfil)
+    {
+        return view('/admin.perfis.show_perfil', compact('perfil'));
+    }
+    
     public function create()
     {
         $perfil = new Perfil();
         $user = auth()->user();
 
-        return view('.profile.partials.update-profile-information-form', compact('perfil', 'user'));
+        return view('/admin.perfis.create_perfil', compact('perfil', 'user'));
     }
 
     /**
@@ -24,6 +34,6 @@ class PerfilController extends Controller
         
         Perfil::create($data);
 
-        return redirect()->route('profile.index')->with('success', 'Dados salvos com sucesso!');
+        return redirect()->route('perfil.index')->with('success', 'Dados salvos com sucesso!');
     }
 }
