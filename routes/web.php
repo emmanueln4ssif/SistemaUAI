@@ -62,16 +62,18 @@ Route::middleware('auth')->group(function () {
         });
 
         Route::prefix('anuncios')->group(function () {
+            Route::post('/delete/{anuncio}', [AnuncioController::class, 'destroy'])->name('anuncios.destroy');
             Route::get('', [AnuncioController::class, 'index'])->name('anuncios.index');
             Route::get('/create', [AnuncioController::class, 'create'])->name('anuncios.create');
             Route::get('/{anuncio}/edit', [AnuncioController::class, 'edit'])->name('anuncios.edit');
             Route::get('/{anuncio}', [AnuncioController::class, 'show'])->name('anuncios.show');
             Route::post('', [AnuncioController::class, 'store'])->name('anuncios.store');
             Route::post('/{anuncio}', [AnuncioController::class, 'update'])->name('anuncios.update');
-            Route::post('/delete/{anuncio}', [AnuncioController::class, 'destroy'])->name('anuncios.destroy');
+            
         });
 
         Route::prefix('imoveis')->group(function () {
+            Route::delete('/delete/{imovel}', [ImovelController::class, 'destroy'])->name('imoveis.destroy');
             Route::get('', [ImovelController::class, 'index'])->name('imoveis.index');
             Route::get('/create', [ImovelController::class, 'create'])->name('imoveis.create');
             Route::get('/{imovel}/edit', [ImovelController::class, 'edit'])->name('imoveis.edit');
@@ -79,7 +81,7 @@ Route::middleware('auth')->group(function () {
             Route::post('', [ImovelController::class, 'store'])->name('imoveis.store');
             Route::put('/{imovel}', [ImovelController::class, 'update'])->name('imoveis.update');
 
-            Route::delete('/delete/{imovel}', [ImovelController::class, 'destroy'])->name('imoveis.destroy');
+            
 
 
         });
