@@ -39,6 +39,18 @@
             width: 100%; 
             margin: 0 auto;
         }
+
+        .color-button {
+            background-color: #ed3849;
+        }
+
+        .white-text {
+            color: #fff;
+        }
+
+        .rounded-borders {
+            border-radius: 0.375rem;
+        }
     </style>
 
     @include('layouts.script')
@@ -88,7 +100,9 @@
                             <p class="text ml-2"><label class="label">Quantidade de Quartos: </label>{{ $imovel->quantidade_quartos }}</p>
                         </div>
                     </div>
-     
+                    <div class="top-margin text-left">
+                                <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('imoveis.index')}}">Voltar</a></button>
+                    </div>
                 </div>
             </div>
         </div>

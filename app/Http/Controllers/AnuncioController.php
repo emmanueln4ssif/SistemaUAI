@@ -14,8 +14,8 @@ class AnuncioController extends Controller
 {
     public function index(Request $request)
     {
-        $Anuncio = Anuncio::where('cliente_id', Auth::id())->get();
-        return view('/admin.anuncios.index', compact('Anuncio'));
+        $anuncio = Anuncio::where('cliente_id', Auth::id())->get();
+        return view('/admin.anuncios.index', compact('anuncio'));
     }
 
     /**
@@ -48,7 +48,7 @@ class AnuncioController extends Controller
         $data['foto'] = 'fotos';
         $Anuncio = Anuncio::create($data);
             
-        return redirect()->route('anuncios.index')->with('success', 'Anuncio agendada com sucesso!');
+        return redirect()->route('anuncios.index')->with('success', 'Anúncio criado com sucesso!');
     }
 
     /**
@@ -92,11 +92,12 @@ class AnuncioController extends Controller
                 'imovel_id' => $request->input('imovel_id'),
                 'cliente_id' => Auth::id(),
             ]);
+            
 
             return redirect()->route('anuncios.show', $anuncio->id)->with('success', 'Anúncio atualizado com sucesso!');
          } 
          catch (\Exception $e) {
-            return redirect()->route('anuncios.show', $imovel->id)->with('error', 'Erro ao atualizar anúncio.');
+            return redirect()->route('anuncios.show', $anuncio->id)->with('error', 'Erro ao atualizar anúncio.');
          }
     }
 

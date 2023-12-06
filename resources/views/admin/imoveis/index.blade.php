@@ -5,6 +5,27 @@
         .link-spacing > * + * {
             margin-left: 1.5rem; 
         }
+
+        .top-margin {
+            margin-top: 0.5rem;
+        }
+
+        .bottom-margin{
+            margin-bottom: 1.5rem;
+        }
+
+        .color-button {
+            background-color: #ed3849;
+        }
+
+        .white-text {
+            color: #fff;
+        }
+
+        .rounded-borders {
+            border-radius: 0.375rem;
+        }
+
     </style>
 
     <x-slot name="header">
@@ -19,7 +40,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
                 <div class="p-6 text-gray-900">
-
+                    <div class="top-margin bottom-margin text-right">
+                                <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('imoveis.create')}}">Criar novo imóvel</a></button>
+                    </div>
                     @foreach($imoveis as $imovel)
                         <div class="mb-4 border p-4">
                             <h3 class="text-lg font-semibold">{{ $imovel->tipo }}</h3>
@@ -40,8 +63,11 @@
                             </div>
                         </div>
                     @endforeach
-
+                    <div class="top-margin text-left">
+                                <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('dashboard')}}">Voltar</a></button>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>

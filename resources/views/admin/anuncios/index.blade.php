@@ -5,6 +5,26 @@
         .link-spacing > * + * {
             margin-left: 1.5rem; 
         }
+
+        .top-margin {
+            margin-top: 0.5rem;
+        }
+
+        .bottom-margin{
+            margin-bottom: 1.5rem;
+        }
+
+        .color-button {
+            background-color: #ed3849;
+        }
+
+        .white-text {
+            color: #fff;
+        }
+
+        .rounded-borders {
+            border-radius: 0.375rem;
+        }
     </style>
 
     <x-slot name="header">
@@ -19,9 +39,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
                 <div class="p-6 text-gray-900">
-
+                    <div class="top-margin bottom-margin text-right">
+                        <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('anuncios.create')}}">Criar novo anúncio</a></button>
+                    </div>
                     @foreach($Anuncio as $anuncio)
-                    <form action="{{ route('anuncios.destroy', $anuncio->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este anúncio?')">
                         <div class="mb-4 border p-4">
                             <h3 class="text-lg font-semibold">{{ $anuncio->titulo }}</h3>
                             <p>{{ $anuncio->valor }}</p>
@@ -32,15 +53,18 @@
                                 <a href="{{ route('anuncios.edit', $anuncio->id) }}" class="text-red-600 hover:underline">
                                     <i class="ri-pencil-line"></i> Editar
                                 </a>
+                                <form action="{{ route('anuncios.destroy', $anuncio->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este anúncio?')">
                                     @csrf
                                     <button type="submit" class="text-red-600 hover:underline">
                                         <i class="ri-delete-back-2-line"></i> Apagar
                                     </button>
+                                </form>
                             </div>
                         </div>
-                    </form>
                     @endforeach
-
+                    <div class="top-margin text-left">
+                        <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('dashboard')}}">Voltar</a></button>
+                    </div>
                 </div>
             </div>
         </div>
