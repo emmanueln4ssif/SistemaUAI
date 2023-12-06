@@ -10,7 +10,7 @@ class Perfil extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nome',
+        'foto',
         'username',
         'ocupacao',
         'descricao_pessoal',

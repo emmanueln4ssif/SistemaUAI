@@ -32,7 +32,7 @@ class PerfilController extends Controller
     public function create()
     {
         $perf = new Perfil();
-        $perfil = Perfil::where('cliente_id', auth()->user()->id)->first();
+        $perfil = Perfil::where('cliente_id', auth()->user()->id)->latest()->first();
         $user = auth()->user();
 
         return view('profile.edit', compact('perfil', 'user'));
@@ -54,7 +54,20 @@ class PerfilController extends Controller
             'cep'=> 'required|formato_cep',
         ]);
 
+        //ImageUpload
+        if($request->hasFile('foto') && $request->file('foto')->isValid()){
+            $requestImage = $request->foto;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/perfil'), $imageName);
+            $data['foto'] = $imageName;
+        } else if(empty($request->foto)) {
+            $perfil = Perfil::where('cliente_id', auth()->user()->id)->latest()->first();
+            $data['foto'] = $perfil->foto;
+        }
+
         $data = $request->all();
+        $data['foto'] = $imageName;
         $data['avaliacoes'] = null;
         $data['cliente_id'] = auth()->user()->id;
 

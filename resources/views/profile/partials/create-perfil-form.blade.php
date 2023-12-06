@@ -1,4 +1,5 @@
 <section>
+    @include('layouts.script')
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Meu Perfil') }}
@@ -8,8 +9,10 @@
             {{ __("Preencha ou atualize os dados de perfil.") }}
         </p>
     </header>
-    <form method="post" action="{{ route('perfil.store') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('perfil.store') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
+
+        <img class="rounded w-36 h-36" src="{{asset('img/perfil/'.$perfil->foto)}}" alt="Extra large avatar">
 
         <div>
             <x-input-label for="name" :value="__('Username')" />
@@ -59,9 +62,9 @@
             <x-input-error class="mt-2" :messages="$errors->get('cep')" />
         </div>
 
-        <div>
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input" name = "foto">Adicionar arquivo</label>
-            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+        <div class="col-md-12">
+            <label for="formFile" class="form-label">Enviar nova foto de perfil</label>
+            <input class="form-control" type="file" id="formFile" name = "foto">
         </div>
 
         <div class="flex items-center gap-4">
@@ -79,4 +82,3 @@
         </div>
     </form>
 </section>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
