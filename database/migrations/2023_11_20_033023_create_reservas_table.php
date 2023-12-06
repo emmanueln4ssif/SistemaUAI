@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('anuncio_id')->constrained('anuncios');
-            $table->foreignId('cliente_id')->constrained('clientes');
+            $table->foreignId('solicitante_id')->constrained('users');
             $table->date('data_entrada');
+            $table->date('data_saida');
             $table->string('observacao');
             $table->integer('quantidade_quartos');
+            $table->enum('status', ['pendente', 'confirmada', 'cancelada']);
             $table->timestamps();
         });
     }

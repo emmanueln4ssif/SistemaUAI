@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('avaliacoes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('imovel_id')->constrained('imoveis');
-            $table->foreignId('cliente_id')->constrained('clientes');
+            $table->foreignId('cliente_id')->constrained('users');
             $table->date('data');
             $table->integer('nota');
             $table->string('comentario');

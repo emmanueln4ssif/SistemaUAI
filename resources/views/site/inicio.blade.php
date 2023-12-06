@@ -17,7 +17,7 @@
         <li class="link"><a href="{{ route('register') }}">Registrar-se</a></li>
       </ul>
       <div class="nav__logo">
-        <a href="#">[LOGO AQUI]<span>.</span></a>
+        <a href="#">UAI Home<span>.</span></a>
       </div>
       <div class="nav__icons">
         <span>
@@ -36,7 +36,7 @@
         <p>
           Segurança é fundamental para qualquer negócio. Por isso, a UAI Home garante a segurança do seu imóvel a partir de uma plataforma segura para que você possa anunciar ou alugar um imóvel.
         </p>
-        <button class="btn">ANUNCIE</button>
+        <a href="{{ route('login') }}"><button class="btn">ANUNCIE</button></a>
       </div>
       <div class="header__image">
         <img src="{{@asset('img/header.png')}}" alt="header" />
@@ -103,8 +103,7 @@
         <h4>SOBRE NÓS</h4>
         <a href="#">Home</a>
         <a href="#">Anúncios</a>
-        <a href="#">Blog</a>
-        <a href="#">Área do Usuário</a>
+        <a href="{{route('dashboard')}}">Área do Usuário</a>
         <a href="#">Dúvidas frequentes</a>
       </div>
       <div class="footer__col">

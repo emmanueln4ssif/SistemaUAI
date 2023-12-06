@@ -11,10 +11,12 @@ class Reserva extends Model
 
     protected $fillable = [
         'anuncio_id',
-        'cliente_id',
+        'solicitante_id',
         'data_entrada',
-        'observacao',
-        'quantidade_quartos'
+        'data_saida',
+        'observacoes',
+        'quantidade_quartos',
+        'status'
     ];
 
     public function anuncio()

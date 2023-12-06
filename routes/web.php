@@ -78,9 +78,7 @@ Route::middleware('auth')->group(function () {
             Route::post('', [ImovelController::class, 'store'])->name('imoveis.store');
             Route::put('/{imovel}', [ImovelController::class, 'update'])->name('imoveis.update');
 
-            
-
-
+        
         });
         
         Route::prefix('reservas')->group(function () {
@@ -88,6 +86,8 @@ Route::middleware('auth')->group(function () {
             Route::get('/create', [ReservaController::class, 'create'])->name('reservas.create');
             Route::get('/{reserva}/edit', [ReservaController::class, 'edit'])->name('reservas.edit');
             Route::get('/{reserva}', [ReservaController::class, 'show'])->name('reservas.show');
+            //Route::post('/{id}', 'ReservaController@confirmarReserva')->name('reservas.confirmarReserva');
+            Route::post('/{id}', [ReservaController::class, 'confirmarReserva'])->name('reservas.confirmarReserva');
             Route::post('', [ReservaController::class, 'store'])->name('reservas.store');
             Route::post('/{reserva}', [ReservaController::class, 'update'])->name('reservas.update');
             Route::post('/delete/{reserva}', [ReservaController::class, 'destroy'])->name('reservas.destroy');

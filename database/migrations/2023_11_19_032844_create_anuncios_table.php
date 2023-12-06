@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('anuncios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id')->constrained('clientes');
+            $table->foreignId('cliente_id')->constrained('users');
             $table->foreignId('imovel_id')->constrained('imoveis');
             $table->string('titulo');
             $table->string('tipo');
