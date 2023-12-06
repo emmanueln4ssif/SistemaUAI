@@ -158,8 +158,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
                 <div class="p-6 text-gray-900">
-                    <h3 class="large-text medium-font bottom-margin black-text">Atualize as informações do seu imóvel</h3>
-                    <form action="{{ route('imoveis.update', $imovel->id) }}" method="post">
+                    <h3 class="large-text medium-font bottom-margin black-text">Atualize as informações do seu anúncio</h3>
+                    <form action="{{ route('anuncios.update', $anuncio->id) }}" method="post">
                         @csrf
                         @method('put')
                         <div class="top-margin text-center">
@@ -167,8 +167,8 @@
                         </div>
                         <input style="display: none;" type="file" name="fotos" id="fotos" accept="image/*" multiple onchange="previewImages(event)">
                         <div class="photo-container" id="photoContainer">
-                            @if ($imovel->fotos && $imovel->fotos->count() > 0)
-                                @foreach($imovel->fotos as $foto)
+                            @if ($anuncio->fotos && $anuncio->fotos->count() > 0)
+                                @foreach($anuncio->fotos as $foto)
                                     <div class="image-wrapper">
                                         <img src="{{ asset('storage/' . $foto->caminho) }}" alt="Imagem Existente" class="added-photo large">
                                         <button type="button" class="remove-photo" onclick="removeExistingImage({{ $foto->id }})">Remover</button>
@@ -178,36 +178,24 @@
                         </div>
                         <div class="grid">
                             <div class="bottom-margin">
-                                <label for="cidade" class="block text-sm font-medium text-gray-600 medium-text">Cidade</label>
-                                <input type="text" name="cidade" id="cidade" class="form-input" value="{{ $imovel->cidade }}">
-                            </div>
-                            <div class="bottom-margin">
-                                <label for="estado" class="block text-sm font-medium text-gray-600 medium-text">Estado</label>
-                                <input type="text" name="estado" id="estado" class="form-input" value="{{ $imovel->estado }}">
-                            </div>
-                            <div class="bottom-margin">
-                                <label for="cep" class="block text-sm font-medium text-gray-600 medium-text">CEP</label>
-                                <input type="text" name="cep" id="cep" class="form-input" value="{{ $imovel->cep }}">
-                            </div>
-                            <div class="bottom-margin">
-                                <label for="bairro" class="block text-sm font-medium text-gray-600 medium-text">Bairro</label>
-                                <input type="text" name="bairro" id="bairro" class="form-input" value="{{ $imovel->bairro }}">
-                            </div>
-                            <div class="bottom-margin">
-                                <label for="endereco" class="block text-sm font-medium text-gray-600 medium-text">Endereço</label>
-                                <input type="text" name="endereco" id="endereco" class="form-input" value="{{ $imovel->endereco }}">
+                                <label for="titulo" class="block text-sm font-medium text-gray-600 medium-text">Título</label>
+                                <input type="text" name="titulo" id="titulo" class="form-input" value="{{ $anuncio->titulo }}">
                             </div>
                             <div class="bottom-margin">
                                 <label for="tipo" class="block text-sm font-medium text-gray-600 medium-text">Tipo</label>
-                                <input type="text" name="tipo" id="tipo" class="form-input" value="{{ $imovel->tipo }}">
+                                <input type="text" name="tipo" id="tipo" class="form-input" value="{{ $anuncio->tipo }}">
                             </div>
                             <div class="bottom-margin">
-                                <label for="tamanho" class="block text-sm font-medium text-gray-600 medium-text">Tamanho</label>
-                                <input type="text" name="tamanho" id="tamanho" class="form-input" value="{{ $imovel->tamanho }}">
+                                <label for="valor" class="block text-sm font-medium text-gray-600 medium-text">valor</label>
+                                <input type="text" name="valor" id="valor" class="form-input" value="{{ $anuncio->valor }}">
                             </div>
                             <div class="bottom-margin">
-                                <label for="quant_quartos" class="block text-sm font-medium text-gray-600 medium-text">Quantidade de Quartos</label>
-                                <input type="text" name="quant_quartos" id="quant_quartos" class="form-input" value="{{ $imovel->quantidade_quartos }}">
+                                <label for="tempo_aluguel" class="block text-sm font-medium text-gray-600 medium-text">Tempo de Aluguel</label>
+                                <input type="text" name="tempo_aluguel" id="tempo_aluguel" class="form-input" value="{{ $anuncio->tempo_aluguel }}">
+                            </div>
+                            <div class="bottom-margin">
+                                <label for="observacoes" class="block text-sm font-medium text-gray-600 medium-text">Observações</label>
+                                <input type="text" name="observacoes" id="observacoes" class="form-input" value="{{ $anuncio->observacoes }}">
                             </div>
                         </div>
 

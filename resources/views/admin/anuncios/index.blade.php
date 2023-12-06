@@ -21,6 +21,7 @@
                 <div class="p-6 text-gray-900">
 
                     @foreach($Anuncio as $anuncio)
+                    <form action="{{ route('anuncios.destroy', $anuncio->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este anúncio?')">
                         <div class="mb-4 border p-4">
                             <h3 class="text-lg font-semibold">{{ $anuncio->titulo }}</h3>
                             <p>{{ $anuncio->valor }}</p>
@@ -31,15 +32,13 @@
                                 <a href="{{ route('anuncios.edit', $anuncio->id) }}" class="text-red-600 hover:underline">
                                     <i class="ri-pencil-line"></i> Editar
                                 </a>
-                                <form action="{{ route('anuncios.destroy', $anuncio->id) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este imóvel?')">
                                     @csrf
-                                    @method('delete')
                                     <button type="submit" class="text-red-600 hover:underline">
                                         <i class="ri-delete-back-2-line"></i> Apagar
                                     </button>
-                                </form>
                             </div>
                         </div>
+                    </form>
                     @endforeach
 
                 </div>

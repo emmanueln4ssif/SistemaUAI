@@ -56,34 +56,34 @@ class AnuncioController extends Controller
      */
     public function show($id)
     {
-        $Anuncio = Anuncio::findOrFail($id);
-        return view('admin.anuncios.show', compact('Anuncio'));
+        $anuncio = Anuncio::findOrFail($id);
+        return view('admin.anuncios.show', compact('anuncio'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Anuncio $Anuncio)
+    public function edit(Anuncio $anuncio)
     {
-        return view('admin.anuncios.edit', compact('Anuncio'));
+        return view('admin.anuncios.edit', compact('anuncio'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Anuncio $Anuncio)
+    public function update(Request $request, Anuncio $anuncio)
     {
         try {
             $request->validate([
                 'titulo' => 'required|string',
                 'tipo' => 'required|string',
                 'tempo_aluguel' => 'required|int',
-                'valor' => 'required|double',
+                'valor' => 'required|numeric',
                 'observacoes' => 'required|string',
                 'imovel_id' => 'required|int',
             ]);
             
-            $Anuncio->update([
+            $anuncio->update([
                 'titulo' => $request->input('titulo'),
                 'tipo' => $request->input('tipo'),
                 'tempo_aluguel' => $request->input('tempo_aluguel'),
@@ -93,10 +93,10 @@ class AnuncioController extends Controller
                 'cliente_id' => Auth::id(),
             ]);
 
-            return redirect()->route('imoveis.show', $imovel->id)->with('success', 'Imovel atualizado com sucesso!');
+            return redirect()->route('anuncios.show', $anuncio->id)->with('success', 'Anúncio atualizado com sucesso!');
          } 
          catch (\Exception $e) {
-            return redirect()->route('imoveis.show', $imovel->id)->with('error', 'Erro ao atualizar imovel.');
+            return redirect()->route('anuncios.show', $imovel->id)->with('error', 'Erro ao atualizar anúncio.');
          }
     }
 
@@ -107,13 +107,12 @@ class AnuncioController extends Controller
     public function destroy($id)
     {
         $anuncio = Anuncio::find($id);
-
         if (!$anuncio = Anuncio::find($id)) {
-            return redirect()->route('anuncios.index')->with('error', 'Anuncio não encontrado.');
+            return redirect()->route('anuncios.index')->with('error', 'Anúncio não encontrado.');
         }
 
         $anuncio->delete();
 
-        return redirect()->route('anuncios.index')->with('success', 'Anuncio excluído com sucesso!');
+        return redirect()->route('anuncios.index')->with('success', 'Anúncio excluído com sucesso!');
     }
 }
