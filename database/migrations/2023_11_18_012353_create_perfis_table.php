@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perfis', function (Blueprint $table) {
+        Schema::create('perfils', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id')->constrained('clientes');
+            $table->foreignId('cliente_id')->constrained('users');
             $table->string('username');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('ocupacao');
             $table->string('descricao_pessoal');
             $table->string('telefone');

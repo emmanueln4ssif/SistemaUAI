@@ -27,6 +27,11 @@ class Anuncio extends Model
     {
         return $this->belongsTo(Cliente::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
    
     public function imovel(): HasOne
     {

@@ -46,21 +46,20 @@ class RegisteredUserController extends Controller
             'cpf'=> $request->cpf,
         ]);
 
-        $cliente = Cliente::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'is_admin' => 0,
-            'cpf'=> $request->cpf,
-            'anunciosFavoritos' => null,
-            'dataCadastro'=> null,
-            'dataNascimento'=> null
-        ]);
+        //$cliente = Cliente::create([
+        //    'name' => $request->name,
+         //   'email' => $request->email,
+         //   'password' => Hash::make($request->password),
+          //  'is_admin' => 0,
+          //  'cpf'=> $request->cpf,
+         //   'anunciosFavoritos' => null,
+          //  'dataCadastro'=> null,
+          //  'dataNascimento'=> null
+        //]);
 
         event(new Registered($user));
-        event(new Registered($cliente));
 
-        Auth::login($cliente);
+        Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }

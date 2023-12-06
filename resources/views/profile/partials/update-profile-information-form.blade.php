@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Informações do Perfil') }}
+            {{ __('Dados de Acesso') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Preencha ou atualize os dados do seu perfil.") }}
+            {{ __("Preencha ou atualize os dados de acesso.") }}
         </p>
     </header>
 
@@ -47,71 +47,8 @@
             @endif
         </div>
 
-        <form id="send-verification" method="post" action="{{ route('perfil.create') }}">
-            @csrf
-
-            <div class="mt-2">
-                <x-input-label for="username" :value="__('Nome de Usuário')" />
-                <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" autocomplete="username" />
-                <x-input-error :messages="$errors->updatePassword->get('username')" class="mt-2" />
-            </div>
-
-            <div class="mt-2">
-                <x-input-label for="ocupacao" :value="__('Ocupação')" />
-                <x-text-input id="username" name="ocupacao" type="text" class="mt-1 block w-full" autocomplete="ocupacao" />
-                <x-input-error :messages="$errors->updatePassword->get('username')" class="mt-2" />
-            </div>
-
-            <div class="mt-2">
-                <x-input-label for="descricao" :value="__('Descrição Pessoal')" />
-                <x-text-input id="username" name="descricao" type="text" class="mt-2 block w-full" autocomplete="ocupacao" />
-                <x-input-error :messages="$errors->updatePassword->get('username')" class="mt-2" />
-            </div>
-
-            <div class="mt-2">
-                <x-input-label for="telefone" :value="__('Telefone')" />
-                <x-text-input id="username" name="telefone" type="text" class="mt-1 block w-full" autocomplete="ocupacao" />
-                <x-input-error :messages="$errors->updatePassword->get('username')" class="mt-2" />
-            </div>
-
-            <div class="mt-2">
-                <x-input-label for="telefone" :value="__('Endereço')" />
-                <x-text-input id="username" name="endereco" type="text" class="mt-1 block w-full" autocomplete="ocupacao" />
-                <x-input-error :messages="$errors->updatePassword->get('username')" class="mt-2" />
-            </div>
-
-            <div class="mt-2">
-                <x-input-label for="telefone" :value="__('Cidade')" />
-                <x-text-input id="username" name="cidade" type="text" class="mt-1 block w-full" autocomplete="ocupacao" />
-                <x-input-error :messages="$errors->updatePassword->get('username')" class="mt-2" />
-            </div>
-
-            <div class="mt-2">
-                <x-input-label for="telefone" :value="__('Estado')" />
-                <x-text-input id="username" name="estado" type="text" class="mt-1 block w-full" autocomplete="ocupacao" />
-                <x-input-error :messages="$errors->updatePassword->get('username')" class="mt-2" />
-            </div>
-
-            <div class="mt-2">
-                <x-input-label for="telefone" :value="__('CEP')" />
-                <x-text-input id="username" name="cep" type="text" class="mt-1 block w-full" autocomplete="ocupacao" />
-                <x-input-error :messages="$errors->updatePassword->get('username')" class="mt-2" />
-            </div>
-
-            <div class="mt-2">
-                EXIBIR AVALIAÇÕES
-            </div>
-
-            <div class="mt-2">
-                COLOCAR BOTAO DE FOTO
-            </div>
-
-
-    
-        </form>
-
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Salvar') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p

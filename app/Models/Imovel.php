@@ -26,6 +26,11 @@ class Imovel extends Model
         return $this->belongsTo(Cliente::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function anuncios()
     {
         return $this->hasMany(Anuncio::class);

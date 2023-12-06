@@ -38,6 +38,8 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
+    Route::post('/profile/create', [PerfilController::class, 'store'])->name('perfil.store');
+    Route::get('/profile/create', [PerfilController::class, 'create'])->name('perfil.create');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -54,11 +56,6 @@ Route::middleware('auth')->group(function () {
             Route::post('', [ClienteController::class, 'store'])->name('clientes.store');
             Route::post('/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
             Route::post('/delete/{cliente}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
-
-            Route::get('/meu_perfil', [PerfilController::class, 'create'])->name('perfil.create');
-            Route::post('/meu_perfil', [PerfilController::class, 'store'])->name('perfil.store');
-            Route::get('/meu_perfil/{cliente}', [PerfilController::class, 'show'])->name('perfil.show');
-            Route::get('/meu_perfil/{cliente}/edit', [PerfilController::class, 'edit'])->name('perfil.edit');
         });
 
         Route::prefix('anuncios')->group(function () {
@@ -121,9 +118,7 @@ Route::middleware('auth')->group(function () {
    
 });
 
-Route::prefix('area')->group(function () {
-    Route::post('/create', [PerfilController::class, 'create'])->name('perfil.create');
-});
+
 
 
 require __DIR__.'/auth.php';
