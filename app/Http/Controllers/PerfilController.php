@@ -31,7 +31,8 @@ class PerfilController extends Controller
     
     public function create()
     {
-        $perfil = new Perfil();
+        $perf = new Perfil();
+        $perfil = Perfil::where('cliente_id', auth()->user()->id)->first();
         $user = auth()->user();
 
         return view('profile.edit', compact('perfil', 'user'));

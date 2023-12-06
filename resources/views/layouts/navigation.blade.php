@@ -49,8 +49,8 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                        <x-dropdown-link :href="route('perfil.create')">
+                            {{ __('Meu perfil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->

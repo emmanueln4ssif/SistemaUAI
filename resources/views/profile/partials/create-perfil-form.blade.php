@@ -8,7 +8,6 @@
             {{ __("Preencha ou atualize os dados de perfil.") }}
         </p>
     </header>
-
     <form method="post" action="{{ route('perfil.store') }}" class="mt-6 space-y-6">
         @csrf
 
@@ -60,6 +59,11 @@
             <x-input-error class="mt-2" :messages="$errors->get('cep')" />
         </div>
 
+        <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input" name = "foto">Adicionar arquivo</label>
+            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Salvar') }}</x-primary-button>
 
@@ -75,3 +79,4 @@
         </div>
     </form>
 </section>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
