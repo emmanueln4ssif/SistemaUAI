@@ -6,7 +6,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Preencha ou atualize os dados de perfil.") }}
+            {{ __("Preencha ou atualize os dados do seu perfil.") }}
         </p>
     </header>
     <form method="post" action="{{ route('perfil.store') }}" class="mt-6 space-y-6" enctype="multipart/form-data">

@@ -38,8 +38,8 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::post('/profile/create', [PerfilController::class, 'store'])->name('perfil.store');
-    Route::get('/profile/create', [PerfilController::class, 'create'])->name('perfil.create');
+    Route::post('/profile/mine', [PerfilController::class, 'store'])->name('perfil.store');
+    Route::get('/profile/mine', [PerfilController::class, 'create'])->name('perfil.create');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
