@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-md-6">
                             <p class="text left-margin"><label class="label">Tempo de Aluguel: </label>{{ $anuncio->tempo_aluguel }}</p>
-                            <p class="text left-margin"><label class="label">Obervações: </label>{{ $anuncio->observacoes }}</p>
+                            <p class="text left-margin"><label class="label">Observações: </label>{{ $anuncio->observacoes }}</p>
                         </div>
                         <div class="top-margin text-left">
                             <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('anuncios.index')}}">Voltar</a></button>

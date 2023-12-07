@@ -1,17 +1,66 @@
 <x-app-layout>
+@include('layouts.script')
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+    <style>
+        .centrar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .espacamento {
+            margin-right: 10px;
+            margin-top: 80px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .imagem {
+            height: 100px;
+            width: 100px;
+            margin-top: 5px;
+        }
+
+    </style>
+
+    <div class="centrar">
+        <div class="card espacamento" style="width: 18rem;">
+         <img src="{{@asset('img/user.png')}}" class="card-img-top imagem" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Usuários</h5>
+                    <a href="route('clientes.index')" class="btn btn-danger">Acessar</a>
                 </div>
-            </div>
+        </div>
+        <div class="card espacamento" style="width: 18rem;">
+         <img src="{{@asset('img/house.png')}}" class="card-img-top imagem" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Imóveis</h5>
+                    <a href="#" class="btn btn-danger">Acessar</a>
+                </div>
+        </div>
+        <div class="card espacamento" style="width: 18rem;">
+         <img src="{{@asset('img/announce.png')}}" class="card-img-top imagem" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Anúncios</h5>
+                    <a href="#" class="btn btn-danger">Acessar</a>
+                </div>
+        </div>
+        <div class="card espacamento" style="width: 18rem;">
+         <img src="{{@asset('img/reserve.png')}}" class="card-img-top imagem" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Reservas</h5>
+                    <a href="#" class="btn btn-danger">Acessar</a>
+                </div>
         </div>
     </div>
     

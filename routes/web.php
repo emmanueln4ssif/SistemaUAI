@@ -10,7 +10,7 @@ use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\AvaliacaoController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Anuncio; // Import the Anuncio model
+use App\Models\Anuncio;
 
 /*
 |--------------------------------------------------------------------------
