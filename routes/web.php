@@ -65,7 +65,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/{anuncio}/edit', [AnuncioController::class, 'edit'])->name('anuncios.edit');
             Route::get('/{anuncio}', [AnuncioController::class, 'show'])->name('anuncios.show');
             Route::post('', [AnuncioController::class, 'store'])->name('anuncios.store');
-            Route::post('/{anuncio}', [AnuncioController::class, 'update'])->name('anuncios.update');
+            Route::put('/{anuncio}', [AnuncioController::class, 'update'])->name('anuncios.update');
             
         });
 

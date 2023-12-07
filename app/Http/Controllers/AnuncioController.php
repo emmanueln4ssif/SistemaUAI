@@ -71,33 +71,16 @@ class AnuncioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Anuncio $anuncio)
+    public function update(Request $request, $id)
     {
-        try {
-            $request->validate([
-                'titulo' => 'required|string',
-                'tipo' => 'required|string',
-                'tempo_aluguel' => 'required|int',
-                'valor' => 'required|numeric',
-                'observacoes' => 'required|string',
-                'imovel_id' => 'required|int',
-            ]);
-            
-            $anuncio->update([
-                'titulo' => $request->input('titulo'),
-                'tipo' => $request->input('tipo'),
-                'tempo_aluguel' => $request->input('tempo_aluguel'),
-                'valor' => $request->input('valor'),
-                'observacoes' => $request->input('observacoes'),
-                'imovel_id' => $request->input('imovel_id'),
-                'cliente_id' => Auth::id(),
-            ]);
+        
+        $anuncio = Anuncio::find($id);
 
-            return redirect()->route('anuncios.show', $anuncio->id)->with('success', 'Anúncio atualizado com sucesso!');
-         } 
-         catch (\Exception $e) {
-            return redirect()->route('anuncios.show', $imovel->id)->with('error', 'Erro ao atualizar anúncio.');
-         }
+        $data = $request->all();
+
+        $anuncio->update($data);
+
+        return redirect()->route('anuncios.show', $anuncio->id)->with('success', 'Anúncio atualizado com sucesso!');
     }
 
 
