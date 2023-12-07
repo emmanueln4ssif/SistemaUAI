@@ -140,35 +140,35 @@
                             <div class="grid">
                                 <div class="bottom-margin">
                                     <label for="cidade" class="block text-sm font-medium text-gray-600 medium-text" >Cidade</label>
-                                    <input type="text" name="cidade" id="cidade" class="form-input">
+                                    <input type="text" name="cidade" id="cidade" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="estado" class="block text-sm font-medium text-gray-600 medium-text">Estado</label>
-                                    <input type="text" name="estado" id="estado" class="form-input">
+                                    <input type="text" name="estado" id="estado" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="CEP" class="block text-sm font-medium text-gray-600 medium-text">CEP</label>
-                                    <input type="text" name="CEP" id="CEP" class="form-input">
+                                    <input type="text" name="CEP" id="CEP" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="bairro" class="block text-sm font-medium text-gray-600 medium-text">Bairro</label>
-                                    <input type="text" name="bairro" id="bairro" class="form-input">
+                                    <input type="text" name="bairro" id="bairro" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="endereco" class="block text-sm font-medium text-gray-600 medium-text">Endereço</label>
-                                    <input type="text" name="endereco" id="endereco" class="form-input">
+                                    <input type="text" name="endereco" id="endereco" class="form-input"required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="tipo" class="block text-sm font-medium text-gray-600 medium-text">Tipo</label>
-                                    <input type="text" name="tipo" id="tipo" class="form-input">
+                                    <input type="text" name="tipo" id="tipo" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="tamanho" class="block text-sm font-medium text-gray-600 medium-text">Tamanho</label>
-                                    <input type="text" name="tamanho" id="tamanho" class="form-input">
+                                    <input type="text" name="tamanho" id="tamanho" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="quant_quartos" class="block text-sm font-medium text-gray-600 medium-text">Quantidade de Quartos</label>
-                                    <input type="text" name="quant_quartos" id="quant_quartos" class="form-input">
+                                    <input type="text" name="quant_quartos" id="quant_quartos" class="form-input" required>
                                 </div>
 
                             </div>

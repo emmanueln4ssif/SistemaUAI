@@ -179,35 +179,35 @@
                         <div class="grid">
                             <div class="bottom-margin">
                                 <label for="cidade" class="block text-sm font-medium text-gray-600 medium-text">Cidade</label>
-                                <input type="text" name="cidade" id="cidade" class="form-input" value="{{ $imovel->cidade }}">
+                                <input type="text" name="cidade" id="cidade" class="form-input" value="{{ $imovel->cidade }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="estado" class="block text-sm font-medium text-gray-600 medium-text">Estado</label>
-                                <input type="text" name="estado" id="estado" class="form-input" value="{{ $imovel->estado }}">
+                                <input type="text" name="estado" id="estado" class="form-input" value="{{ $imovel->estado }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="cep" class="block text-sm font-medium text-gray-600 medium-text">CEP</label>
-                                <input type="text" name="cep" id="cep" class="form-input" value="{{ $imovel->cep }}">
+                                <input type="text" name="cep" id="cep" class="form-input" value="{{ $imovel->cep }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="bairro" class="block text-sm font-medium text-gray-600 medium-text">Bairro</label>
-                                <input type="text" name="bairro" id="bairro" class="form-input" value="{{ $imovel->bairro }}">
+                                <input type="text" name="bairro" id="bairro" class="form-input" value="{{ $imovel->bairro }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="endereco" class="block text-sm font-medium text-gray-600 medium-text">Endereço</label>
-                                <input type="text" name="endereco" id="endereco" class="form-input" value="{{ $imovel->endereco }}">
+                                <input type="text" name="endereco" id="endereco" class="form-input" value="{{ $imovel->endereco }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="tipo" class="block text-sm font-medium text-gray-600 medium-text">Tipo</label>
-                                <input type="text" name="tipo" id="tipo" class="form-input" value="{{ $imovel->tipo }}">
+                                <input type="text" name="tipo" id="tipo" class="form-input" value="{{ $imovel->tipo }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="tamanho" class="block text-sm font-medium text-gray-600 medium-text">Tamanho</label>
-                                <input type="text" name="tamanho" id="tamanho" class="form-input" value="{{ $imovel->tamanho }}">
+                                <input type="text" name="tamanho" id="tamanho" class="form-input" value="{{ $imovel->tamanho }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="quant_quartos" class="block text-sm font-medium text-gray-600 medium-text">Quantidade de Quartos</label>
-                                <input type="text" name="quant_quartos" id="quant_quartos" class="form-input" value="{{ $imovel->quantidade_quartos }}">
+                                <input type="text" name="quant_quartos" id="quant_quartos" class="form-input" value="{{ $imovel->quantidade_quartos }}" required>
                             </div>
                         </div>
 

@@ -165,7 +165,7 @@
                         <div class="top-margin text-center">
                             <button type="button" class="px-4 py-2 color-button white-text rounded-borders bottom-margin" onclick="document.getElementById('fotos').click()">Adicionar Fotos</button>
                         </div>
-                        <input style="display: none;" type="file" name="fotos" id="fotos" accept="image/*" multiple onchange="previewImages(event)">
+                        <input style="display: none;" type="file" name="fotos" id="fotos" accept="image/*" multiple onchange="previewImages(event)" required>
                         <div class="photo-container" id="photoContainer">
                             @if ($anuncio->fotos && $anuncio->fotos->count() > 0)
                                 @foreach($anuncio->fotos as $foto)
@@ -179,23 +179,23 @@
                         <div class="grid">
                             <div class="bottom-margin">
                                 <label for="titulo" class="block text-sm font-medium text-gray-600 medium-text">Título</label>
-                                <input type="text" name="titulo" id="titulo" class="form-input" value="{{ $anuncio->titulo }}">
+                                <input type="text" name="titulo" id="titulo" class="form-input" value="{{ $anuncio->titulo }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="tipo" class="block text-sm font-medium text-gray-600 medium-text">Tipo</label>
-                                <input type="text" name="tipo" id="tipo" class="form-input" value="{{ $anuncio->tipo }}">
+                                <input type="text" name="tipo" id="tipo" class="form-input" value="{{ $anuncio->tipo }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="valor" class="block text-sm font-medium text-gray-600 medium-text">valor</label>
-                                <input type="text" name="valor" id="valor" class="form-input" value="{{ $anuncio->valor }}">
+                                <input type="text" name="valor" id="valor" class="form-input" value="{{ $anuncio->valor }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="tempo_aluguel" class="block text-sm font-medium text-gray-600 medium-text">Tempo de Aluguel</label>
-                                <input type="text" name="tempo_aluguel" id="tempo_aluguel" class="form-input" value="{{ $anuncio->tempo_aluguel }}">
+                                <input type="text" name="tempo_aluguel" id="tempo_aluguel" class="form-input" value="{{ $anuncio->tempo_aluguel }}" required>
                             </div>
                             <div class="bottom-margin">
                                 <label for="observacoes" class="block text-sm font-medium text-gray-600 medium-text">Observações</label>
-                                <input type="text" name="observacoes" id="observacoes" class="form-input" value="{{ $anuncio->observacoes }}">
+                                <input type="text" name="observacoes" id="observacoes" class="form-input" value="{{ $anuncio->observacoes }}" required>
                             </div>
                         </div>
 

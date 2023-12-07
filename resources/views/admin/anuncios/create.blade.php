@@ -139,27 +139,27 @@
                             <div class="grid">
                                 <div class="bottom-margin">
                                     <label for="titulo" class="block text-sm font-medium text-gray-600 medium-text" >Título</label>
-                                    <input type="text" name="titulo" id="titulo" class="form-input">
+                                    <input type="text" name="titulo" id="titulo" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="tipo" class="block text-sm font-medium text-gray-600 medium-text">Tipo</label>
-                                    <input type="text" name="tipo" id="tipo" class="form-input">
+                                    <input type="text" name="tipo" id="tipo" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="tempo_aluguel" class="block text-sm font-medium text-gray-600 medium-text">Tempo de Aluguel</label>
-                                    <input type="text" name="tempo_aluguel" id="tempo_aluguel" class="form-input">
+                                    <input type="text" name="tempo_aluguel" id="tempo_aluguel" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="valor" class="block text-sm font-medium text-gray-600 medium-text">Valor</label>
-                                    <input type="text" name="valor" id="valor" class="form-input">
+                                    <input type="text" name="valor" id="valor" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="observacoes" class="block text-sm font-medium text-gray-600 medium-text">Observações</label>
-                                    <textarea type="text" name="observacoes" id="observacoes" class="form-input" rows="4" cols="10"></textarea>
+                                    <textarea type="text" name="observacoes" id="observacoes" class="form-input" rows="4" cols="10" required></textarea>
                                 </div>
                                 <div class="bottom-margin">
                                     <label for="imovel_id" class="block text-sm font-medium text-gray-600 medium-text">Imóvel</label>
-                                    <select type="text" name="imovel_id" id="imovel_id" class="form-input">
+                                    <select type="text" name="imovel_id" id="imovel_id" class="form-input" required>
                                     <option value="" disabled selected>Selecione um imóvel</option>
                                         @foreach ($imoveis as $imovel)
                                             <option value="{{$imovel->id}}">{{$imovel->endereco}}, {{$imovel->bairro}}, {{$imovel->cidade}} </option>
