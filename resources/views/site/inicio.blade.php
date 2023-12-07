@@ -80,10 +80,10 @@
     @else
         <div class="row">
             @foreach($anuncios as $anuncio)
-                <div class="col-md-4 position-relative" style="height: 450px; border: 1px solid #ddd; margin-bottom:10px">
+                <div class="col-md-4 position-relative" style="height: 500px; border: 1px solid #ddd; margin-bottom:10px">
                     
-                        <div style="height: 250px;"><img src="{{@asset('img/casa1.webp')}}" alt="hero" class="img-fluid" /></div>
-                        <div style="margin-left: 10px; height: 200px;">
+                        <div style="height: 300px;"><img src="{{@asset('img/casa1.webp')}}" alt="hero" class="img-fluid" /></div>
+                        <div style="margin-left: 10px; height: 250px;">
                             <h4 class="text-lg font-semibold text-center">{{ $anuncio->titulo }}</h4>
                             <p style="color: black;" class="text-left">Valor(R$): {{ $anuncio->valor }}</p>
                             <p style="color: black;" class="text-left">Tipo: {{ $anuncio->tipo }}</p>
