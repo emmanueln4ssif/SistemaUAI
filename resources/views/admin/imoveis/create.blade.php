@@ -136,9 +136,6 @@
                     <h3 class="large-text medium-font bottom-margin black-text">Preencha as informações do seu imóvel</h3>
                     <form action="{{ route('imoveis.store') }}" method="post">
                         @csrf
-                        <div class="top-margin text-center">
-                            <button type="button" class="px-4 py-2 color-button white-text rounded-borders bottom-margin" onclick="document.getElementById('fotos').click()">Adicionar Fotos</button>                        <input style="display: none;" type="file" name="fotos" id="fotos" accept="image/*" multiple onchange="previewImages(event)">
-                        </div>
                         <div class="photo-container" id="photoContainer"></div>
                             <div class="grid">
                                 <div class="bottom-margin">
@@ -175,8 +172,12 @@
                                 </div>
 
                             </div>
-
-                            <div class="top-margin">
+                            <div class="text-left">
+                            <button type="button" class="px-4 py-2 color-button white-text rounded-borders  " onclick="document.getElementById('fotos').click()">Adicionar Fotos</button>                        <input style="display: none;" type="file" name="fotos" id="fotos" accept="image/*" multiple onchange="previewImages(event)">
+                       
+                            </div>
+                            <div class="top-margin text-center">
+                                <button class="px-4 py-2 color-button white-text rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('imoveis.index')}}">Voltar</a></button>
                                 <button type="submit" class="px-4 py-2 color-button white-text rounded-borders">Criar</button>
                             </div>
                         </form>
