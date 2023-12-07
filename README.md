@@ -1,3 +1,7 @@
+## Usuário master:
+- email: ```admin@uaihome.br```
+- senha: ```12345678```
+
 ## Como executar o projeto
 
 Para executar o projeto você deve seguir os seguintes passos:
