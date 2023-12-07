@@ -14,8 +14,8 @@ class AnuncioController extends Controller
 {
     public function index(Request $request)
     {
-        $anuncio = Anuncio::where('cliente_id', Auth::id())->get();
-        return view('/admin.anuncios.index', compact('anuncio'));
+        $Anuncio = Anuncio::where('cliente_id', Auth::id())->get();
+        return view('/admin.anuncios.index', compact('Anuncio'));
     }
 
     /**
