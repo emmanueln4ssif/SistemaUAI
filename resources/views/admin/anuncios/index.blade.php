@@ -42,12 +42,15 @@
                     <div class="top-margin bottom-margin text-right">
                         <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('anuncios.create')}}">Criar novo anúncio</a></button>
                     </div>
+                    @if($Anuncio->isEmpty())
+                    <p class="text-center">Você não tem anúncios cadastrados</p>
+                    @else
                     @foreach($Anuncio as $anuncio)
                         <div class="mb-4 border p-4">
                             <h3 class="text-lg font-semibold">{{ $anuncio->titulo }}</h3>
-                            <p>{{ $anuncio->valor }}</p>
-                            <p>{{ $anuncio->tipo }}</p>
-                            <p>{{ $anuncio->observacoes}}</p>
+                            <p>Valor(R$): {{ $anuncio->valor }}</p>
+                            <p>Tipo: {{ $anuncio->tipo }}</p>
+                            <p>Observações: {{ $anuncio->observacoes}}</p>
                             <div class="flex items-center space-x-4 mt-2 link-spacing">
                                 <a href="{{ route('anuncios.show', $anuncio->id) }}" class="text-red-600 hover:underline">Detalhes</a>
                                 <a href="{{ route('anuncios.edit', $anuncio->id) }}" class="text-red-600 hover:underline">
@@ -62,6 +65,7 @@
                             </div>
                         </div>
                     @endforeach
+                    @endif
                     <div class="top-margin text-left">
                         <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('dashboard')}}">Voltar</a></button>
                     </div>
