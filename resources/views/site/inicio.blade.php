@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@include('layouts.script')
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -72,15 +73,33 @@
     </section>
 
     <section class="section__container product__container">
-      <h2 class="section__header">Anúncios em alta</h2>
-      <p class="section__subheader">
-        Lorem ipsum...
-      </p>
-    
-      <div class="product__btn">
-        <button class="btn">Ver mais</button>
-      </div>
-    </section>
+    <h2 class="section__header">Anúncios em alta</h2>
+
+    @if($anuncios->isEmpty())
+        <p class="text-center">Ainda não há anúncios disponíveis no momento</p>
+    @else
+        <div class="row">
+            @foreach($anuncios as $anuncio)
+                <div class="col-md-4 position-relative" style="height: 450px; border: 1px solid #ddd; margin-bottom:10px">
+                    
+                        <div style="height: 250px;"><img src="{{@asset('img/header.png')}}" alt="hero" class="img-fluid" /></div>
+                        <div style="margin-left: 10px; height: 200px;">
+                            <h4 class="text-lg font-semibold text-center">{{ $anuncio->titulo }}</h4>
+                            <p style="color: black;" class="text-left">Valor(R$): {{ $anuncio->valor }}</p>
+                            <p style="color: black;" class="text-left">Tipo: {{ $anuncio->tipo }}</p>
+                            <p style="color: black; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="text-left">Observações: {{ $anuncio->observacoes}}</p>
+                            <a class="text-center; hover:underline" style="margin-left: 160px; color: red; text-decoration: none;" href="{{ route('anuncios.show', $anuncio->id) }}">Ver detalhes</a>
+                        </div>
+                   
+                </div>
+            @endforeach
+        </div>
+    @endif
+</section>
+
+
+
+
 
     <footer class="section__container footer__container">
       <div class="footer__col">

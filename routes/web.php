@@ -10,6 +10,7 @@ use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\AvaliacaoController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Anuncio;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 //rotas públicas do site
 
 Route::get('/', function () {
-    return view('site.inicio');
+    $anuncios = Anuncio::all();
+    return view('site.inicio', compact('anuncios'));
 });
 
 
