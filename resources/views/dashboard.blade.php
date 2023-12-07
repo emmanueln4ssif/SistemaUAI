@@ -35,7 +35,7 @@
 
     
     <div class="centrar">
-        @can('view', Auth::user()->is_admin == 1)
+        @if(Auth::user()->is_admin == 1)
         <div class="card espacamento" style="width: 18rem;">
          <img src="{{@asset('img/user.png')}}" class="card-img-top imagem" alt="...">
                 <div class="card-body">
@@ -43,7 +43,7 @@
                     <a href="/conta/usuario" class="btn btn-danger">Acessar</a>
                 </div>
         </div>
-        @endcan
+        @endif
         <div class="card espacamento" style="width: 18rem;">
          <img src="{{@asset('img/house.png')}}" class="card-img-top imagem" alt="...">
                 <div class="card-body">

@@ -17,7 +17,7 @@
                     </x-nav-link>
                 </div>
 
-                @can('view', Auth::user()->is_admin === 1)
+                @if(Auth::user()->is_admin === 1)
                     
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('clientes.index')">
@@ -25,7 +25,7 @@
                     </x-nav-link>
                 </div>
 
-                @endcan
+                @endif
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('imoveis.index')" :active="request()->routeIs('imoveis.index')">
                         {{ __('Imóveis') }}

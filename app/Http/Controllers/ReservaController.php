@@ -27,6 +27,9 @@ class ReservaController extends Controller
                 ->where('anuncios.cliente_id', Auth::user()->id)
                 ->latest('reservas.created_at')
                 ->paginate(5);
+        } else{
+            $reservasFeitasPorMim = Reserva::latest()->paginate(5);
+            $reservasEnviadasAMim = Reserva::latest()->paginate(5);
         }
 
         $logado = Auth::user()->id;
