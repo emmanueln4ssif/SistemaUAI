@@ -34,19 +34,21 @@ class AnuncioController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-        'titulo' => 'required|string',
-        'tipo' => 'required|string',
-        'tempo_aluguel' => 'required|int',
-        'valor' => 'required|numeric',
-        'observacoes' => 'required|string',
-        'imovel_id' => 'required|int',]);
-        
-        
+        if($request->hasFile('foto') && $request->file('foto')->isValid()){
+            $requestImage = $request->foto;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('img/anuncios'), $imageName);
+            $data['foto'] = $imageName;
+        } else if(empty($request->foto)) {
+            $data['foto'] = 'semFoto';
+        }
+
         $data = $request->all();
-        $data['cliente_id'] = Auth::id();
-        $data['foto'] = 'fotos';
-        $Anuncio = Anuncio::create($data);
+        //$data['foto'] = $imageName;
+        $data['cliente_id'] = auth()->user()->id;
+        
+        Anuncio::create($data);  
             
         return redirect()->route('anuncios.index')->with('success', 'Anúncio criado com sucesso!');
     }

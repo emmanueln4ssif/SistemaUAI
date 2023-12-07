@@ -40,8 +40,17 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
                 <div class="p-6 text-gray-900">
-                    <b style="margin-top: 5%">Reservas do(s) seu(s) imóvel(is)</b>
+                    <h2 class="text-lg font-medium text-gray-900">
+                        {{ __('Reservas solicitadas para você') }}
+                    </h2>
+            
+                    <p class="mt-1 text-sm text-gray-600" style="margin:2%">
+                        {{ __("Verifique as reservas feitas por outros usuários a seus imovéis. Altere o status, se for de seu desejo.") }}
+                    </p>
 
+                    @if($reservasEnviadasAMim->isEmpty())
+                        <p class="text-center">Parece que não há uma reserva por aqui...</p>
+                    @else
                         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
@@ -83,7 +92,7 @@
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="inline-flex rounded-md shadow-sm" role="group">
-                                                ver nome do usuario
+                                              {{Auth::user()->name}}
                                            </div>
                                         </td>
                                         <td class="px-6 py-4">
@@ -107,24 +116,29 @@
                             {{ $reservas->links('pagination::tailwind') }}
                         </div>
 
-                        <!--endif-->
+                        @endif
 
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-
-
                 <div class="py-12">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-6 text-gray-900">
-                                <b style="margin-top: 5%">Reservas feitas por você</b>
-
-                                <<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <h2 class="text-lg font-medium text-gray-900">
+                                    {{ __('Reservas feitas por você') }}
+                                </h2>
+                        
+                                <p class="mt-1 text-sm text-gray-600" style="margin:2%">
+                                    {{ __("Verifique o status atual das reservas solicitadas por você.") }}
+                                </p>
+                                
+                                @if($reservasFeitasPorMim->isEmpty())
+                                <p class="text-center">Parece que não há uma reserva por aqui...</p>
+                                @else
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                         <tr>
                                             <th scope="col" class="px-6 py-3">
@@ -164,7 +178,7 @@
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     <div class="inline-flex rounded-md shadow-sm" role="group">
-                                                        ver nome do usuario
+                                                        {{$reserva->solicitante_id}}
                                                    </div>
                                                 </td>
                                                 <td class="px-6 py-4">
@@ -187,8 +201,7 @@
                                 <div class="text-center">
                                     {{ $reservas->links('pagination::tailwind') }}
                                 </div>
-
-
+                                @endif
                             </div>
                         </div>
                     </div>

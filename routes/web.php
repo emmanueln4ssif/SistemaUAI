@@ -6,9 +6,8 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ImovelController;
-use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ReservaController;
-use App\Http\Controllers\AvaliacaoController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Anuncio;
 
@@ -28,9 +27,10 @@ use App\Models\Anuncio;
 Route::get('/', function () {
     $anuncios = Anuncio::all();
     return view('site.inicio', compact('anuncios'));
-});
+})->name('site.inicio');
 
-
+Route::get('/anuncio/{id}', [PublicController::class, 'index'])->name('anuncio.index');
+Route::post('/anuncio/{id}', [ReservaController::class, 'solicitarReserva'])->name('reservas.solicitarReserva');
 
 //rotas privadas, referentes a conta do usuario
 
@@ -88,7 +88,6 @@ Route::middleware('auth')->group(function () {
             Route::get('/create', [ReservaController::class, 'create'])->name('reservas.create');
             Route::get('/{reserva}/edit', [ReservaController::class, 'edit'])->name('reservas.edit');
             Route::get('/{reserva}', [ReservaController::class, 'show'])->name('reservas.show');
-            //Route::post('/{id}', 'ReservaController@confirmarReserva')->name('reservas.confirmarReserva');
             Route::post('/{id}', [ReservaController::class, 'confirmarReserva'])->name('reservas.confirmarReserva');
             Route::post('', [ReservaController::class, 'store'])->name('reservas.store');
             Route::post('/{reserva}', [ReservaController::class, 'update'])->name('reservas.update');

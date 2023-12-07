@@ -172,10 +172,6 @@
                                 </div>
 
                             </div>
-                            <div class="text-left">
-                            <button type="button" class="px-4 py-2 color-button white-text rounded-borders  " onclick="document.getElementById('fotos').click()">Adicionar Fotos</button>                        <input style="display: none;" type="file" name="fotos" id="fotos" accept="image/*" multiple onchange="previewImages(event)">
-                       
-                            </div>
                             <div class="top-margin text-center">
                                 <button class="px-4 py-2 color-button white-text rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('imoveis.index')}}">Voltar</a></button>
                                 <button type="submit" class="px-4 py-2 color-button white-text rounded-borders">Criar</button>

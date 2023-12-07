@@ -43,6 +43,9 @@
                     <div class="top-margin bottom-margin text-right">
                                 <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('imoveis.create')}}">Criar novo imóvel</a></button>
                     </div>
+                    @if($imoveis->isEmpty())
+                    <p class="text-center">Você não tem imóveis cadastrados</p>
+                    @else
                     @foreach($imoveis as $imovel)
                         <div class="mb-4 border p-4">
                             <h3 class="text-lg font-semibold">{{ $imovel->tipo }}</h3>
@@ -63,6 +66,7 @@
                             </div>
                         </div>
                     @endforeach
+                    @endif
                     <div class="top-margin text-left">
                                 <button class="px-4 py-2 color-button rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('dashboard')}}">Voltar</a></button>
                     </div>

@@ -146,7 +146,7 @@
                                     <input type="text" name="tipo" id="tipo" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
-                                    <label for="tempo_aluguel" class="block text-sm font-medium text-gray-600 medium-text">Tempo de Aluguel</label>
+                                    <label for="tempo_aluguel" class="block text-sm font-medium text-gray-600 medium-text">Período</label>
                                     <input type="text" name="tempo_aluguel" id="tempo_aluguel" class="form-input" required>
                                 </div>
                                 <div class="bottom-margin">
@@ -168,11 +168,16 @@
                                 </div>
                             </div>
 
-                            <div class="top-margin">
+                            <div class="col-md-12" style="margin-bottom:5%">
+                                <label for="formFile" class="form-label">Enviar foto do imóvel</label>
+                                <input class="form-control" type="file" id="formFile" name = "foto">
+                            </div>
+
+                            <div class="top-margin text-center">
+                                <button class="px-4 py-2 color-button white-text rounded-borders"><a style="color: white; text-decoration: none;" href="{{route('anuncios.index')}}">Voltar</a></button>
                                 <button type="submit" class="px-4 py-2 color-button white-text rounded-borders">Criar</button>
                             </div>
-                        </form>
-                  
+                    </form>
                 </div>
             </div>
         </div>

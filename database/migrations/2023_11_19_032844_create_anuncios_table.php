@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('imovel_id')->constrained('imoveis')->cascadeOnDelete();
             $table->string('titulo');
             $table->string('tipo');
-            $table->string('observacoes');
+            $table->text('observacoes', 1000);
             $table->string('valor');
             $table->boolean('status_ativo')->default(false);
             $table->string('foto');

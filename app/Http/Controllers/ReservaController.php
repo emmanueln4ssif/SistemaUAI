@@ -5,13 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Reserva;
 use App\Models\User;
-use App\Models\Imovel;
+use App\Models\Anuncio;
 use App\Models\Perfil;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class ReservaController extends Controller
 {
+    public function __invoke(Request $request)
+    {
+        // Your controller logic goes here
+    }
+
     public function index(Request $request)
     {
         $reservas = Reserva::latest()->paginate(5);
@@ -59,5 +64,22 @@ class ReservaController extends Controller
         $reserva->save();
 
         return redirect()->route('reservas.index')->with('success', 'Status alterado com sucesso!');
+    }
+
+    public function solicitarReserva($id)
+    {
+        $anuncio = Anuncio::find($id);
+        $reserva = new Reserva();
+        $reserva->anuncio_id = $anuncio->id;
+        $reserva->solicitante_id = Auth::user()->id;
+        $reserva->data_entrada = Carbon::today();
+        $reserva->data_saida = Carbon::today()->addDays(10);
+        $reserva->observacao = 'Boa tarde! Entre em contato comigo para combinarmos os detalhes da reserva.';
+        $reserva->status = 'pendente';
+        $reserva->quantidade_quartos = 1;
+
+        $reserva->save();
+
+        return redirect()->route('site.inicio')->with('success', 'Reserva com sucesso!');
     }
 }

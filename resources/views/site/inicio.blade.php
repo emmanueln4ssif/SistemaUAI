@@ -40,7 +40,7 @@
         <a href="{{ route('login') }}"><button class="btn">ANUNCIE</button></a>
       </div>
       <div class="header__image">
-        <img src="{{@asset('img/header.png')}}" alt="header" />
+        <img src="{{@asset('img/couple.png')}}" alt="header" />
       </div>
     </header>
 
@@ -59,7 +59,7 @@
         <div class="hero__content">
           <p>TEMPORADA</p>
           <h4>Aluguéis de curto prazo</h4>
-          <a href="#">Saiba mais</a>
+          
         </div>
       </div>
       <div class="hero__card">
@@ -67,7 +67,7 @@
         <div class="hero__content">
           <p>MORADIA</p>
           <h4>Aluguéis para o tempo necessário</h4>
-          <a href="#">Saiba mais</a>
+          
         </div>
       </div>
     </section>
@@ -82,13 +82,13 @@
             @foreach($anuncios as $anuncio)
                 <div class="col-md-4 position-relative" style="height: 450px; border: 1px solid #ddd; margin-bottom:10px">
                     
-                        <div style="height: 250px;"><img src="{{@asset('img/header.png')}}" alt="hero" class="img-fluid" /></div>
+                        <div style="height: 250px;"><img src="{{@asset('img/casa1.webp')}}" alt="hero" class="img-fluid" /></div>
                         <div style="margin-left: 10px; height: 200px;">
                             <h4 class="text-lg font-semibold text-center">{{ $anuncio->titulo }}</h4>
                             <p style="color: black;" class="text-left">Valor(R$): {{ $anuncio->valor }}</p>
                             <p style="color: black;" class="text-left">Tipo: {{ $anuncio->tipo }}</p>
                             <p style="color: black; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="text-left">Observações: {{ $anuncio->observacoes}}</p>
-                            <a class="text-center; hover:underline" style="margin-left: 160px; color: red; text-decoration: none;" href="{{ route('anuncios.show', $anuncio->id) }}">Ver detalhes</a>
+                            <a class="text-center; hover:underline" style="margin-left: 160px; color: red; text-decoration: none;" href="{{ route('anuncio.index', $anuncio->id) }}">Ver detalhes</a>
                         </div>
                    
                 </div>

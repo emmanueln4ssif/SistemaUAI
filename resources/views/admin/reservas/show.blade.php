@@ -1,6 +1,20 @@
 <x-app-layout>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
+
+    <style>
+
+        .button{
+            background-color: #ed3849;
+            color: white;
+            border-radius: 0.375rem;
+        }
+        .color-button {
+            background-color: #ed3849;
+        }
+    
+    </style>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
     <x-slot name="header">
@@ -96,6 +110,7 @@
                 
                 <form style="margin-top: 1%" action = "{{ route('reservas.confirmarReserva', $reserva->id) }}" method="post">
                     @csrf
+                    @if($reserva->solicitante_id != Auth::user()->id)
                     <x-input-label for="email" :value="__('Alterar status da reserva')" />
 
                     <select id="countries" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -111,8 +126,15 @@
                         </svg>
                         <span class="sr-only">Icon description</span>
                     </button>
+                    @else
+                    <div style="margin-top: 1%; margin-bottom:1%">
+                        <x-input-label for="email" :value="__('Status atual')" />
+                        <x-text-input id="telefone" name="status" type="text" class="mt-1 block w-full" :value="old('status', $reserva->status)" readonly/>
+                        <x-input-error class="mt-2" :messages="$errors->get('status')" />
+                    </div>
+                    @endif
 
-                    
+                    <button class="px-4 py-2 color-button white-text rounded-borders"><a style="color: white; text-decoration: none; margin-top:5%" href="/conta/reservas">Voltar</a></button>
 
                 </form>
             </div>
