@@ -15,6 +15,7 @@
 
         .espacamento {
             margin-right: 10px;
+            margin-top: 80px;
         }
 
         .card {
@@ -32,15 +33,6 @@
 
     </style>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="centrar">
         <div class="card espacamento" style="width: 18rem;">
          <img src="{{@asset('img/user.png')}}" class="card-img-top imagem" alt="...">
